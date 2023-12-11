@@ -1,0 +1,145 @@
+format = """
+[](#45475A)\
+[](fg:#F38BA8 bg:#45475A)\
+[](fg:#89B4FA bg:#F38BA8)\
+$username\
+$directory\
+[](fg:#89B4FA bg:#F38BA8)\
+$git_branch\
+$git_status\
+$nodejs\
+$rust\
+$golang\
+$php\
+[](fg:#F38BA8 bg:#45475A)\
+[](fg:#45475A) """
+
+# Timeout for commands executed by starship (ms)
+command_timeout = 1000
+
+[character]
+format = '$symbol'
+success_symbol = '[  ](fg:#25FC75 bg:#45475A)'
+error_symbol = '[  ](fg:#FF6776 bg:#45475A)'
+vicmd_symbol = '[  ](fg:#FF6776 bg:#45475A)'
+vimcmd_replace_one_symbol = '[  ](fg:#EEEF7F bg:#45475A)'
+vimcmd_replace_symbol = '[  ](fg:#EEEF7F bg:#45475A)'
+vimcmd_visual_symbol = '[  ](fg:#EB76CB bg:#45475A)'
+disabled = true
+
+
+[username]
+show_always = true
+style_user = "fg:#1E1E2E bg:#89B4FA bold"
+style_root = "fg:#FF5555 bg:#89B4FA bold"
+format = '[ $user]($style)'
+disabled = false
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol](fg:#1E1E2E bg:#89B4FA)[ on ](fg:#1E1E2E bg:#89B4FA)[$hostname](fg:#1E1E2E bg:#89B4FA bold)[ in ](fg:#1E1E2E bg:#89B4FA)'
+disabled = false
+
+[directory]
+read_only = ""
+style = "fg:#1E1E2E bg:#89B4FA"
+format = "[ $path]($style)"
+truncation_length = 2
+truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = ""
+"Downloads" = ""
+"Programming" = "󰅩"
+"Code" = "󰅪"
+"Games" = "󰖺"
+"Music" = ""
+"Pictures" = ""
+"Desktop" = ""
+"Videos" = "󰕧"
+
+[git_branch]
+symbol = ""
+style = "bg:#F38BA8"
+format = "[[ $symbol $branch ](fg:#1E1E2E bg:#F38BA8)]($style)"
+
+[git_status]
+ahead = "⇡${count}"
+behind = "⇣${count}"
+deleted = "󰖭"
+style = "bg:#F38BA8"
+format = "[[($all_status$ahead_behind )](fg:#1E1E2E bg:#F38BA8)]($style)"
+
+[nodejs]
+symbol = ""
+style = "bg:#F38BA8"
+format = "[[ $symbol ($version) ](fg:#1E1E2E bg:#F38BA8)]($style)"
+
+[rust]
+symbol = ""
+style = "bg:#F38BA8"
+format = "[[ $symbol ($version) ](fg:#1E1E2E bg:#F38BA8)]($style)"
+
+[php]
+symbol = ""
+style = "bg:#F38BA8"
+format = "[[ $symbol ($version) ](fg:#1E1E2E bg:#F38BA8)]($style)"
+
+[time]
+disabled = false
+time_format = "%I:%M%p" # Hour:Minute Format
+format = "[[ $time](fg:#1E1E2E bg:#BAC2FE)]($style)"
+
+[c]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[golang]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = "󰆥 "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#F38BA8"
+format = '[ $symbol ($version) ]($style)'

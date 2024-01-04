@@ -3,7 +3,7 @@
     border-radius: 0;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
-    font-size: 13px;
+    font-size: 16px;
     min-height: 0;
 }
 
@@ -49,7 +49,6 @@ tooltip {
 }
 
 #custom-power_profile,
-#custom-weather,
 #custom-kb_brightness,
 #custom-myhyprv,
 #custom-light_dark,
@@ -65,21 +64,20 @@ tooltip {
 #backlight {
     background: #1e1e2e;
     opacity: 0.8;
-    padding: 0px 10px;
-    margin: 3px 0px;
-    margin-top: 10px;
+    padding: 0px 7px;
+    margin: 2px 0px;
+    /* margin-top: 5px; */
     border: 1px solid #181825;
 }
 
 /* close to left */
 #temperature,
-#backlight,
-#custom-myhyprv {
+#backlight {
     border-radius: 10px 0px 0px 10px;
 }
 
 /*close to the right */
-#bluetooth,
+/* #bluetooth, */
 #custom-light_dark {
     border-radius: 0px 10px 10px 0px;
     margin-right: 10px;
@@ -92,6 +90,7 @@ tooltip {
 #tray {
     border-radius: 10px;
     margin-right: 10px;
+    font-size: 20px;
 }
 
 #workspaces {
@@ -103,20 +102,18 @@ tooltip {
 
 #custom-power_profile {
     color: #a6e3a1;
-    border-left: 0px;
-    border-right: 0px;
+    border-radius: 10px 0px 0px 10px;
+    padding-right: 20px;
 }
 
 #window {
     border-radius: 10px;
-    margin-left: 60px;
-    margin-right: 60px;
 }
 
 #clock {
     color: #fab387;
     border-radius: 10px 0px 0px 10px;
-    margin-left: 10px;
+    margin-left: 5px;
     border-right: 0px;
 }
 
@@ -136,7 +133,7 @@ tooltip {
 #pulseaudio {
     color: #89b4fa;
     border-left: 0px;
-    border-right: 0px;
+    border-right: 200px;
 }
 
 #pulseaudio.microphone {
@@ -144,18 +141,18 @@ tooltip {
     border-left: 0px;
     border-right: 0px;
     border-radius: 0px 10px 10px 0px;
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 #battery {
     color: #a6e3a1;
     border-radius: 0 10px 10px 0;
-    margin-right: 10px;
+    margin-right: 5px;
     border-left: 0px;
 }
 
-#custom-weather {
+#custom-kb_brightness {
+    border-radius: 0 10px 10px 0;
+    padding-right: 10px;
     border-radius: 0px 10px 10px 0px;
-    border-right: 0px;
-    margin-left: 0px;
 }

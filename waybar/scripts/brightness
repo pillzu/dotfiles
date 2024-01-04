@@ -27,7 +27,9 @@ get_icon() {
 
 # Notify
 notify_user() {
-	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$icon" "Brightness : $(brightnessctl g)"
+	brightness_value=$(brightnessctl g)
+	value=$(( (brightness_value * 100) / 255 ))
+	notify-send --app-name=brightness -h string:x-canonical-private-synchronous:sys-notify -h int:value:$value -h int:transient:1 -u low "☀️"
 }
 
 # Increase brightness

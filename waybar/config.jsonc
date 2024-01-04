@@ -9,14 +9,12 @@
     "modules-left": [
         "clock",
         "custom/kb_brightness",
-        "custom/weather",
+    ],
+    "modules-center": [
         "hyprland/workspaces",
     ],
-    "modules-center": ["hyprland/window"],
     "modules-right": [
         "tray",
-        "temperature",
-        "custom/power_profile",
         "battery",
         "backlight",
         "pulseaudio",
@@ -24,7 +22,6 @@
     ],
 
     "include": [
-        "~/.config/waybar/mesu.jsonc",
         "~/.config/waybar/asus-rog.jsonc",
     ],
     
@@ -64,7 +61,7 @@
             }
         },
     "tray": {
-        "icon-size": 18,
+        "icon-size": 24,
         "spacing": 10
     },
 
@@ -83,7 +80,7 @@
         "format" : "{icon} {}",
         "format-icons": ["❇"],
         "exec-on-event": true,
-        "exec": "asusctl -k | grep -oP '[0-9]+'",
+        "exec": "asusctl -k |awk -F ': ' '{print $2}'",
         "on-click": "asusctl -n",
         "restart-interval":2 
     },
@@ -149,5 +146,6 @@
 	    "tooltip-format": "{device_alias}",
 	    "tooltip-format-connected": " {device_enumerate}",
 	    "tooltip-format-enumerate-connected": "{device_alias}"
-    }
+    },
 }
+

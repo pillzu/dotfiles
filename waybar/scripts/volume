@@ -24,7 +24,8 @@ get_icon() {
 
 # Notify
 notify_user() {
-	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
+	# notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume : $(get_volume) %"
+	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -h int:value:$(get_volume) -h int:transient:1 --app-name=volume "🎧 Current Volume 🎧"
 }
 
 # Increase Volume
@@ -40,18 +41,18 @@ dec_volume() {
 # Toggle Mute
 toggle_mute() {
 	if [ "$(pamixer --get-mute)" == "false" ]; then
-		pamixer -m && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/volume-mute.png" "Volume Switched OFF"
+		pamixer -m && notify-send  --app-name=volume -h string:x-canonical-private-synchronous:sys-notify -u low  "Switch to Serious work huh? (OFF) 🔈"
 	elif [ "$(pamixer --get-mute)" == "true" ]; then
-		pamixer -u && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_icon)" "Volume Switched ON"
+		pamixer -u && notify-send  --app-name=volume -h string:x-canonical-private-synchronous:sys-notify -u low  "Get em beats rollin' boi (ON) 🔊"
 	fi
 }
 
 # Toggle Mic
 toggle_mic() {
 	if [ "$(pamixer --default-source --get-mute)" == "false" ]; then
-		pamixer --default-source -m && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone-mute.png" "Microphone Switched OFF"
+		pamixer --default-source -m && notify-send  --app-name=volume -h string:x-canonical-private-synchronous:sys-notify -u low  "Ain't nobody gonna hear this (Mic off) 🔐"
 	elif [ "$(pamixer --default-source --get-mute)" == "true" ]; then
-		pamixer -u --default-source u && notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$iDIR/microphone.png" "Microphone Switched ON"
+		pamixer -u --default-source u && notify-send  --app-name=volume -h string:x-canonical-private-synchronous:sys-notify -u low  "Don't even think about it (Mic on) 🎙️"
 	fi
 }
 # Get icons
@@ -69,7 +70,7 @@ get_mic_icon() {
 }
 # Notify
 notify_mic_user() {
-	notify-send -h string:x-canonical-private-synchronous:sys-notify -u low -i "$(get_mic_icon)" "Mic-Level : $(pamixer --default-source --get-volume) %"
+	notify-send  --app-name=volume -h string:x-canonical-private-synchronous:sys-notify -u low  "Mic-Level : $(pamixer --default-source --get-volume) %"
 }
 
 # Increase MIC Volume
@@ -93,10 +94,6 @@ elif [[ "$1" == "--toggle" ]]; then
 	toggle_mute
 elif [[ "$1" == "--toggle-mic" ]]; then
 	toggle_mic
-elif [[ "$1" == "--get-icon" ]]; then
-	get_icon
-elif [[ "$1" == "--get-mic-icon" ]]; then
-	get_mic_icon
 elif [[ "$1" == "--mic-inc" ]]; then
 	inc_mic_volume
 elif [[ "$1" == "--mic-dec" ]]; then

@@ -4,8 +4,8 @@ iDIR="$HOME/.config/mako/icons"
 
 # Get brightness
 get_backlight() {
-	LIGHT=$(printf "%.0f\n" $(brightnessctl -d '*::kbd_backlight' i))
-	echo "${LIGHT}%"
+	LIGHT=$(brightnessctl -d '*::kbd_backlight' |  awk '/Current brightness:/ {print $3}')
+	echo "${LIGHT}"
 }
 
 # Get icons
@@ -38,7 +38,7 @@ dec_backlight() {
 
 # Execute accordingly
 if [[ "$1" == "--get" ]]; then
-	brightnessctl -d '*::kbd_backlight' g
+	get_backlight
 elif [[ "$1" == "--inc" ]]; then
 	inc_backlight
 elif [[ "$1" == "--dec" ]]; then

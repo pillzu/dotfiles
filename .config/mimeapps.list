@@ -1,0 +1,12 @@
+[Default Applications]
+x-scheme-handler/mailto=userapp-Thunderbird-BSDKF2.desktop
+message/rfc822=userapp-Thunderbird-BSDKF2.desktop
+x-scheme-handler/mid=userapp-Thunderbird-BSDKF2.desktop
+x-scheme-handler/msteams=teams.desktop
+application/x-zerosize=firefox.desktop
+x-scheme-handler/figma=figma-linux.desktop
+
+[Added Associations]
+x-scheme-handler/mailto=userapp-Thunderbird-BSDKF2.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-BSDKF2.desktop;
+application/x-zerosize=firefox.desktop;

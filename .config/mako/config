@@ -1,0 +1,48 @@
+# Take a look at the mako manpage with the command:
+#   man 5 mako
+# To view all configuration options.
+
+font=monospace 13
+format=<b>%a</b>\n%s\n%b
+sort=-time
+layer=overlay
+anchor=top-right
+background-color=#2e3440C5
+width=450
+height=110
+margin=15
+padding=0,10,30
+border-size=2
+border-color=#ffcef3
+border-radius=5
+icons=1
+max-icon-size=64
+default-timeout=5000
+ignore-timeout=1
+on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
+
+[urgency=high]
+border-color=#bf616a
+default-timeout=0
+
+[app-name=Spotify]
+border-size=0
+background-color=#2b2b2bD0
+text-color=#0ce458
+
+[app-name=brightness]
+format=%s
+border-size=0
+progress-color=#efefef
+anchor=top-center
+text-alignment=center
+
+[app-name=volume]
+format=%s
+border-size=0
+anchor=top-center
+text-alignment=center
+default-timeout=3000
+
+[summary~="log-.*"]
+border-color=#a3be8c

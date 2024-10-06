@@ -1,14 +1,8 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="hyperzsh"
+ZSH_THEME="robbyrussell"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,60 +64,24 @@ ZSH_THEME="hyperzsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  golang
-  ssh-agent
-)
+plugins=(git zsh-autosuggestions ssh-agent)
 
+# ssh-agent
 zstyle :omz:plugins:ssh-agent identities id_github
 
 source $ZSH/oh-my-zsh.sh
 
-export PATH=$PATH:/home/pillzu/.local/bin
+[ -e ~/.bash_aliases ] && source ~/.bash_aliases
 
-# User configuration
+# inits
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-alias zshconfig="vi ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# aliasis
-source ~/.zsh_aliasis
-
-# bun completions
-[ -s "/home/pillzu/.bun/_bun" ] && source "/home/pillzu/.bun/_bun"
-
-# bun
+# bun 
+[ -s "/home/piyush/.bun/_bun" ] && source "/home/piyush/.bun/_bun"
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# spicetify
-export PATH=$PATH:/home/pillzu/.spicetify
-export PATH=$PATH:/home/pillzu/.local/share/spotify-launcher/install/usr/share/spotify
-
-# fzf
-source <(fzf --zsh)
-HISTSIZE=10000
-SAVEHIST=10000
-setopt appendhistory
+# display on start
+neofetch

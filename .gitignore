@@ -16,6 +16,7 @@
 .config/pavucontrol.ini
 .config/pulse/
 .config/rog/
+.config/simple-update-notifier
 .config/spicetify/*
 .config/spotify/
 .config/spotui/*.cache

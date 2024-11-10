@@ -1,7 +1,7 @@
 {
-    "label" : "logout",
-    "action" : "hyprctl dispatch exit 0",
-    "text" : "Logout"
+    "label" : "sleep",
+    "action" : "hyprlock",
+    "text" : "Sleep"
 }
 {
     "label" : "shutdown",

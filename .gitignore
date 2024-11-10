@@ -3,9 +3,11 @@
 !.config/vesktop/settings/
 !.config/vesktop/state.json
 !.config/vesktop/themes/
+.config/Bitwarden/
 .config/Electron/
 .config/TabNine/
 .config/Thunar/
+.config/btop/btop.log
 .config/dconf/
 .config/figma-linux/
 .config/go/

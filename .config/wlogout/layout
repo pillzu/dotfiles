@@ -1,9 +1,4 @@
 {
-    "label" : "sleep",
-    "action" : "hyprlock",
-    "text" : "Sleep"
-}
-{
     "label" : "shutdown",
     "action" : "systemctl poweroff",
     "text" : "Shutdown"
@@ -13,3 +8,15 @@
     "action" : "systemctl reboot",
     "text" : "Reboot"
 }
+
+{
+    "label" : "sleep",
+    "action" : "hyprlock",
+    "text" : "Sleep"
+}
+{
+    "label" : "logout",
+    "action" : "hyprctl dispatch exit",
+    "text" : "Logout"
+}
+

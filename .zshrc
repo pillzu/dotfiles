@@ -119,11 +119,31 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
 # spicetify
-export PATH=$PATH:/home/pillzu/.spicetify
-export PATH=$PATH:/home/pillzu/.local/share/spotify-launcher/install/usr/share/spotify
+export PATH=$PATH:/home/pillzu/.spicetify:/home/pillzu/.local/share/spotify-launcher/install/usr/share/spotify
+
+# Go
+export GOPATH=/home/pillzu/.cache/go/
+export PATH=$PATH:$GOPATH/bin
 
 # fzf
 source <(fzf --zsh)
 HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
+
+export PATH="$PATH:/home/pillzu/.local/share/coursier/bin"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/home/pillzu/.local/share/coursier/bin"
+# <<< coursier install directory <<<
+
+export JAVA_HOME=/usr/lib/jvm/default
+# >>> haddop + spark
+export PATH="$PATH:/home/pillzu/.local/share/hadoop-3.0.3/bin" 
+export PATH="$PATH:/home/pillzu/.local/share/spark-2.3.1-bin-without-hadoop/bin"
+export SPARK_DIST_CLASSPATH=$(hadoop classpath)
+# <<< haddop + spark
+
+# >>> linux
+export PATH="$PATH:/home/pillzu/.local/share/arm-gnu-toolchain-14.2.rel1-x86_64-aarch64-none-elf/bin" 
+# <<< linux

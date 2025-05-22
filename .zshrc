@@ -82,5 +82,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# pywal
-wal -R -q
+# pywal (for kitty)
+if [[ $TERM == "xterm-kitty" ]]; then
+  wal -R -q
+fi

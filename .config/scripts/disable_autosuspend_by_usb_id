@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if [[ -z $1 ]]; then
+    echo "Usage: $0 <device_id>"
+    exit 1
+fi
+
+# Target USB ID (vendor:product)
+# TARGET_ID="24ae:1870"
+TARGET_ID="$1"
+
+
+# Get bus and device numbers from lsusb
+read BUS DEV <<< $(lsusb | grep "$TARGET_ID" | awk '{print $2, $4}' | sed 's/://g')
+if [[ -z "$BUS" || -z "$DEV" ]]; then
+    echo "Device with ID $TARGET_ID not found."
+    exit 1
+fi
+
+# Convert to decimal and zero-pad to match sysfs naming
+BUS=$((10#$BUS))
+DEV=$((10#$DEV))
+
+# Match against device directories in /sys/bus/usb/devices
+sysdev=""
+for devpath in /sys/bus/usb/devices/*; do
+    if [[ -f "$devpath/busnum" && -f "$devpath/devnum" ]]; then
+        busnum=$(cat "$devpath/busnum")
+        devnum=$(cat "$devpath/devnum")
+        if [[ "$busnum" == "$BUS" && "$devnum" == "$DEV" ]]; then
+            echo "Found device path: $devpath"
+            sysdev="$devpath"
+        fi
+    fi
+done
+
+if [[ -z $sysdev ]]; then
+    echo "Device not found in /sys/bus/usb/devices."
+    exit 1
+fi
+
+if echo 'on' > "$sysdev/power/control"; then
+    echo "Disabled autosuspend for $TARGET_ID"
+    exit 0
+fi
+
+echo "Unable to disable autosuspent for $TARGET_ID"
+exit 1

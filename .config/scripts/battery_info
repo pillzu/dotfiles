@@ -1,0 +1,80 @@
+#!/bin/bash
+
+function estimate_time_remaining() {
+    # store result in $1
+    declare -n result="$1"
+
+    if [ -f /sys/class/power_supply/BAT0/energy_now ]; then
+        rem=$(cat /sys/class/power_supply/BAT0/energy_now)
+        rate=$(cat /sys/class/power_supply/BAT0/power_now)
+    elif [ -f /sys/class/power_supply/BAT0/charge_now ]; then
+        rem=$(cat /sys/class/power_supply/BAT0/charge_now)
+        rate=$(cat /sys/class/power_supply/BAT0/current_now)
+    else
+        result='Battery info not found.'
+        exit 1
+    fi
+
+    # Calculate total hours left as a float
+    hours_float=$(echo "scale=4; $rem / $rate" | bc -l)
+
+    # Extract integer hours
+    hours=${hours_float%.*}
+
+    # Calculate minutes
+    minutes=$(echo "($hours_float - $hours) * 60" | bc -l)
+    minutes=${minutes%.*}
+
+    # Handle singular/plural
+    if [ "$hours" -eq 1 ]; then
+        hour_label="hour"
+    else
+        hour_label="hours"
+    fi
+    if [ "$minutes" -eq 1 ]; then
+        minute_label="minute"
+    else
+        minute_label="minutes"
+    fi
+
+    # Output the remaining time
+    result="$hours $hour_label, $minutes $minute_label"
+}
+
+function battery_percentage() {
+    # store result in $1
+    declare -n result="$1"
+
+    # Get the current battery percentage
+    battery_percentage=$(cat /sys/class/power_supply/BAT0/capacity)
+
+    # Get the battery status (Charging or Discharging)
+    battery_status=$(cat /sys/class/power_supply/BAT0/status)
+
+    # Define the battery icons for each 10% segment
+    battery_icons=("󰂃" "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰁹")
+
+    # Define the charging icon
+    charging_icon="󰂄"
+
+    # Calculate the index for the icon array
+    icon_index=$((battery_percentage / 10))
+
+    # Get the corresponding icon
+    battery_icon=${battery_icons[icon_index]}
+
+    # Check if the battery is charging
+    if [ "$battery_status" = "Charging" ]; then
+            battery_icon="$charging_icon"
+    fi
+    result="$battery_percentage% $battery_icon"
+}
+
+if [[ $1 == "time" ]]; then
+    estimate_time_remaining res
+elif [[ $1 == "percentage" ]]; then
+    battery_percentage res
+else
+    res="usage: $0 <time|percentage>"
+fi
+echo $res

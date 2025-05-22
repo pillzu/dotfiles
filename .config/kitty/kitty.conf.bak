@@ -7,7 +7,6 @@ mouse_hide_wait  2.0
 cursor_shape     block
 # url_color        #0087bd
 url_style        dotted
-allow_remote_control yes
 
 clear_all_shortcuts no
 
@@ -17,6 +16,6 @@ background_opacity 0.7
 
 
 # BEGIN_KITTY_THEME
-# Catppuccin-Mocha
+# spaceduck
 include current-theme.conf
 # END_KITTY_THEME

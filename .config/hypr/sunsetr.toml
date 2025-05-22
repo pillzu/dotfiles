@@ -1,0 +1,8 @@
+# Sunsetr configuration
+sunset = "19:00:00"      # Time to transition to night mode (HH:MM:SS)
+sunrise = "06:00:00"     # Time to transition to day mode (HH:MM:SS)
+night_temp = 6000        # Color temperature after sunset (1000-20000) Kelvin
+night_gamma = 90.0       # Gamma percentage for night (0-200%)
+day_gamma = 100.0        # Gamma percentage for day (0-200%)
+start_hyprsunset = true # Whether to start hyprsunset automatically
+                         # Set true if you're not using hyprsunset.service

@@ -1,3 +1,2 @@
 alias ls="exa --icons"
-alias enable-fmon="hyprctl keywords monitor \"HEADLESS-4, 1920x1200@60, -2400x0, 0.8\" && hyprctl keywords monitor \"HEADLESS-5, 1920x0@60, -2400x0, 0.8\""
-alias disable-fmon="hyprctl keywords monitor \"HEADLESS-4, disable\" && hyprctl keywords monitor \"HEADLESS-5, disable\""
+alias ta="tmux new-session -A -s default"

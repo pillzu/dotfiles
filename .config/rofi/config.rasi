@@ -59,7 +59,7 @@ configuration {
 	window-match-fields: "title,class,role,name,desktop";
 	window-command: "wmctrl -i -R {window}";
 	window-format: "{w} - {c} - {t:0}";
-	window-thumbnail: false;
+	window-thumbnail: true;
 
 	/*---------- Combi settings ----------*/
 /*	combi-modi: "window,run";*/
@@ -179,3 +179,5 @@ configuration {
 	me-accept-custom: "Control+MouseDPrimary";
 */
 }
+
+@theme "/usr/share/rofi/themes/paper-float.rasi"

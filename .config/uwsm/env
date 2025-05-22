@@ -1,0 +1,18 @@
+export TZ=America/Toronto
+
+# Theming Related Variables
+export XCURSOR_SIZE=24
+export HYPRCURSOR_THEME=rose-pine-hyprcursor
+export HYPRCURSOR_SIZE=34
+
+# EGL/Wayland
+export WLR_EGL_NO_MODIFIERS=1
+
+# XDG Specifications
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+
+# Toolkit Backend Variables
+export QT_QPA_PLATFORM="wayland"
+export QT_QPA_PLATFORMTHEME=qt5ct
+export ELECTRON_OZONE_PLATFORM_HINT=auto

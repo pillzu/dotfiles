@@ -460,7 +460,7 @@
   "theme.font.style": "normal",
   "theme.bar.buttons.modules.microphone.enableBorder": false,
   "menus.power.lowBatteryNotification": true,
-  "wallpaper.image": "/home/pillzu/Pictures/Wallpapers/marcus-possibility-reach.png",
+  "wallpaper.image": "/home/pillzu/Pictures/Wallpapers/purple-flower.jpg",
   "theme.matugen_settings.mode": "dark",
   "theme.matugen_settings.scheme_type": "neutral",
   "theme.matugen_settings.variation": "standard_1",
@@ -535,5 +535,8 @@
     }
   },
   "theme.bar.buttons.modules.hyprsunset.enableBorder": false,
-  "theme.bar.buttons.monochrome": false
+  "theme.bar.buttons.monochrome": false,
+  "bar.customModules.storage.paths": [
+    "/"
+  ]
 }
